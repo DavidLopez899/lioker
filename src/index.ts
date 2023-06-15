@@ -5,8 +5,8 @@ const app = new Application({
 	resolution: window.devicePixelRatio || 1,
 	autoDensity: true,
 	backgroundColor: 0x6495ed,
-	width: 640,
-	height: 480
+	width: 740,
+	height: 580
 });
 
 const clampy: Sprite = Sprite.from("clampy.png");
