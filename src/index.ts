@@ -1,19 +1,21 @@
-import { Application, Sprite } from 'pixi.js'
+import { Application, Assets, Sprite } from 'pixi.js'
 
 const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
 	resolution: window.devicePixelRatio || 1,
 	autoDensity: true,
 	backgroundColor: 0x6495ed,
-	width: 740,
-	height: 580
+	width: 640,
+	height: 480
 });
 
-const clampy: Sprite = Sprite.from("clampy.png");
+Assets.add("Manos","./manos.png");
+Assets.add("Clampy", "./clampy.png");
 
-clampy.anchor.set(0.5);
+Assets.load(["Manos", "Clampy"]).then(()=>{
+	const clampy: Sprite = Sprite.from("Clampy");
 
-clampy.x = app.screen.width / 2;
-clampy.y = app.screen.height / 2;
+	console.log("Hola mundo", clampy.width, clampy.height);
 
-app.stage.addChild(clampy);
+	app.stage.addChild(clampy);
+});
